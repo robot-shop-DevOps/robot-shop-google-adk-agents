@@ -1,0 +1,19 @@
+name: Build and Deploy Google ADK Agents
+
+on:
+  push:
+    branches-ignore:
+      - main  
+
+  pull_request:
+    branches:
+      - develop
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: robot-shop-DevOps/robot-shop-github-actions/.github/workflows/gcp-adk-agents.yml@gcp
+    with:
+      IMAGE: gcp-infra-agent
+      DOCKERFILE_PATH: ./gcp_infra_agent/Dockerfile
