@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    uses: robot-shop-DevOps/robot-shop-github-actions/.github/workflows/gcp-adk-agents.yml@gcp
+    uses: robot-shop-DevOps/robot-shop-github-actions/.github/workflows/gcp-adk-agents-cloudrun.yaml@gcp
     with:
       IMAGE: gcp-infra-agent
       DOCKERFILE_PATH: ./gcp_infra_agent/Dockerfile
