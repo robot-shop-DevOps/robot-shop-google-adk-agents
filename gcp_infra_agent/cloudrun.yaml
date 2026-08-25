@@ -10,6 +10,6 @@ spec:
     spec:
       containers:
       - image: ${IMAGE}
-      - env:
+        env:
         - name: PORT
         - value: "9000"
