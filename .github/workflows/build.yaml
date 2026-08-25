@@ -17,3 +17,4 @@ jobs:
     with:
       IMAGE: gcp-infra-agent
       DOCKERFILE_PATH: ./gcp_infra_agent/Dockerfile
+      CLOUD_RUN_YAML_PATH: ./gcp_infra_agent/cloudrun.yaml
