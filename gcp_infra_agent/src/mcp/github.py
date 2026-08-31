@@ -20,11 +20,11 @@ READ_ONLY_TOOL_NAMES = [
 ]
 
 def get_github_token() -> str:
-    token = os.getenv("GITHUB_PERSONAL_ACCESS_TOKEN")
+    token = os.getenv("GITHUB_TOKEN")
 
     if not token:
         raise RuntimeError(
-            "GITHUB_PERSONAL_ACCESS_TOKEN environment variable is not set."
+            "GITHUB_TOKEN environment variable is not set."
         )
 
     return token
