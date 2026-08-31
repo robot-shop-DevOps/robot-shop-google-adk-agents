@@ -8,7 +8,26 @@ metadata:
 spec:
   template:
     spec:
+      serviceAccountName: adk-infra-agent@robotshop-platform-dev.iam.gserviceaccount.com
       containers:
-      - image: ${IMAGE}
-        ports:
-        - containerPort: 9000
+        - image: ${IMAGE}
+          ports:
+            - containerPort: 9000
+          env:
+            - name: LITELLM_PROXY_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: litellm-proxy-adk-infra-agent-key
+                  key: latest
+            
+            - name: LITELLM_PROXY_URL
+              value: https://litellm-proxy-1034830772222.asia-south1.run.app
+
+            - name: VERTEX_AI_MODEL
+              value: gemini-2.5-flash
+
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: adk-infra-agent-github-token
+                  key: latest
