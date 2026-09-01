@@ -1,10 +1,9 @@
 import os
-
 from google.adk.agents import LlmAgent
 from google.adk.models.lite_llm import LiteLlm
 
-from gcp_infra_agent.src.prompts.system_instruction import SYSTEM_INSTRUCTION
-from gcp_infra_agent.src.mcp.github import create_github_mcp_toolset
+from gcp_infra_agent.prompts.system_instruction import SYSTEM_INSTRUCTION
+from gcp_infra_agent.mcp.github import create_github_mcp_toolset
 
 
 LITELLM_PROXY_URL = os.environ["LITELLM_PROXY_URL"]
