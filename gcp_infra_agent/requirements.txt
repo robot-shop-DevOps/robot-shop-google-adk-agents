@@ -1,1 +1,2 @@
 google-adk[mcp,extensions]>=1.22.1
+google-auth
