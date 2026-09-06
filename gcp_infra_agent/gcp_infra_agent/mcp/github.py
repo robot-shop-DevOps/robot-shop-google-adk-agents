@@ -7,7 +7,6 @@ GITHUB_MCP_URL = "https://api.githubcopilot.com/mcp/readonly"
 
 READ_ONLY_TOOL_NAMES = [
     "get_me",
-    "search_repositories",
     "search_code",
     "get_file_contents",
     "get_repository_tree",
