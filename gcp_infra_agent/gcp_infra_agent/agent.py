@@ -4,6 +4,7 @@ from google.adk.models.lite_llm import LiteLlm
 
 from gcp_infra_agent.prompts.system_instruction import SYSTEM_INSTRUCTION
 from gcp_infra_agent.mcp.github import create_github_mcp_toolset
+from gcp_infra_agent.mcp.gcp import create_gcp_mcp_toolset
 from gcp_infra_agent.auth.cloudrun_token import TokenManager
 
 
@@ -32,9 +33,12 @@ root_agent = LlmAgent(
     name="robotshop_infra_assistant",
     description=(
         "Read-only assistant that inspects the Robotshop Terraform "
-        "repository via the GitHub MCP server and explains its "
-        "infrastructure configuration."
+        "repository via GitHub MCP and the deployed GCP infrastructure "
+        "via GCP MCP, and explains the infrastructure configuration."
     ),
     instruction=SYSTEM_INSTRUCTION,
-    tools=[create_github_mcp_toolset()],
+    tools=[
+        create_github_mcp_toolset(),
+        create_gcp_mcp_toolset()
+    ],
 )
