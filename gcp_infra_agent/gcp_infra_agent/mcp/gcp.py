@@ -15,8 +15,13 @@ READ_ONLY_TOOL_NAMES = [
 def get_adc_token() -> str:
     credentials, _ = google.auth.default()
     auth_req = Request()
+    credentials.refresh(auth_req)
+
+    if not credentials.token:
+        raise RuntimeError("Failed to obtain ADC access token.")
 
     return credentials.token
+
 
 def create_gcp_mcp_toolset() -> McpToolset:
     token = get_adc_token()
